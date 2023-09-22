@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.scss";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 import { BiPlay } from "react-icons/bi"
 import { AiOutlinePlus } from "react-icons/ai"
 
@@ -59,15 +59,9 @@ const Home = () => {
             } = await axios.get(`${url}/movie/${topRated}?api_key=${apiKey}`);
             setTopRatedMovies(results);
         };
-        const getAllGenre = async () => {
-            const {
-                data: { genres },
-            } = await axios.get(`${url}/genre/movie/list?api_key=${apiKey}`);
-            setGenre(genres);
-            console.log(genres);
-        };
+       
 
-        getAllGenre();
+      
 
         fetchUpcoming();
         fetchNowPlaying();
@@ -99,13 +93,7 @@ const Home = () => {
             <Row title={"Popular"} arr={popularMovies} />
             <Row title={"Top Rated"} arr={topRatedMovies} />
 
-            <div className="genreBox">
-                {genre.map((item) => (
-                    <Link key={item.id} to={`/genre/${item.id}`}>
-                        {item.name}
-                    </Link>
-                ))}
-            </div>
+       
         </section>
     );
 };
