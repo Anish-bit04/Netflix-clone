@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Home.scss";
+import "../Style/Home.scss";
 import axios from "axios";
 
 import { BiPlay } from "react-icons/bi"
